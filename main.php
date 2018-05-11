@@ -8,6 +8,7 @@
 	//Includes
 	include_once 'get_file_paths.php';
 	include_once 'get_file_pairs.php';
+	include_once 'filter_tagged_files.php';
 	include_once 'set_file_pairs_diff.php';
 	include_once 'notify_slack.php';
 
@@ -26,10 +27,16 @@
 	$repo = $repository->name;
 	$user = $repository->owner->login;
 
+	//Get file paths
 	$file_paths = GetFilePaths($commits, $user, $repo);
 
+	//Get file pairs
 	$file_pairs = GetFilePairs($file_paths, $commits, $user, $repo);
 
+	//Remove untagged files
+	FilterTaggedFiles($file_pairs);
+
+	//Set differences between files
 	SetFilePairsDiff($file_pairs);
 
 	//Set Slack Messages
