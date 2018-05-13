@@ -29,7 +29,7 @@
 	$user = $repository->owner->login;
 
 	//Verify Github
-	AuthenticateGitHub("username", "*******");
+	AuthenticateGitHub("dcarlyn", "******");
 
 	//Get file paths
 	$file_paths = GetFilePaths($commits, $user, $repo);

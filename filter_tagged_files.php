@@ -18,7 +18,7 @@
 		//Find file pairs to delete
 		for ($i = 0; $i < count($file_pairs); $i++)
 		{
-			if(strpos($file_pair->new_file, $tag) === false)
+			if(strpos($file_pairs[$i]->new_file, $tag) === false)
 			{
 				array_push($delete_positions, $i);
 			}
