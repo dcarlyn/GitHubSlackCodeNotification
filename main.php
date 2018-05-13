@@ -6,6 +6,7 @@
 
 
 	//Includes
+	include_once 'github_authentication.php';
 	include_once 'get_file_paths.php';
 	include_once 'get_file_pairs.php';
 	include_once 'filter_tagged_files.php';
@@ -26,6 +27,9 @@
 	//Repo name and username
 	$repo = $repository->name;
 	$user = $repository->owner->login;
+
+	//Verify Github
+	AuthenticateGitHub("username", "*******");
 
 	//Get file paths
 	$file_paths = GetFilePaths($commits, $user, $repo);
