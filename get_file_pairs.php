@@ -11,13 +11,16 @@
 	function GetFilePairs($file_names, $commits, $user, $repo)
 	{
 		$file_pairs = array();
-		$file_pair;
 
 		//For each file
 		foreach ($file_names as $file_name)
 		{
+			//New file pair
+			$file_pair = new stdClass();
+
 			//Store name in file_pair
 			$file_pair->file_name = $file_name;
+			//echo $file_name;
 
 			//Getting file data
 			$file_data = GetGithubData('https://api.github.com/repos/' . $user . '/' . $repo . '/commits?path=' . $file_name);
@@ -30,6 +33,8 @@
 
 			//Store in file pair
 			$file_pair->new_file = $new_file;
+
+			//echo $new_file;
 
 			//Get old file by avoiding ones from the same commit payload
 			foreach ($file_data as $file)

@@ -12,25 +12,27 @@
 
 	function FilterTaggedFiles(&$file_pairs)
 	{
+		$new_file_pairs = array();
 		$tag = "Track: dcarlyn2018";
-		$delete_positions = array();
 
-		//Find file pairs to delete
-		for ($i = 0; $i < count($file_pairs); $i++)
+		//Find tagged file pairs
+		foreach ($file_pairs as $file_pair)
 		{
-			if(strpos($file_pairs[$i]->new_file, $tag) === false)
+			if(strpos($file_pair->new_file, $tag) !== false)
 			{
-				array_push($delete_positions, $i);
+				array_push($new_file_pairs, $file_pair);
 			}
 		}
 
-		//Delete non-tagged files
-		for($j = count($delete_positions) - 1; $j >= 0; $j--)
-		{
-			unset($file_pairs[$j]);
-		} 
+		//Clear array of file pairs
+		$file_pairs = array();
+
+		//Insert into file pairs array
+		$file_pairs = $new_file_pairs;
+
 
 	}
 
 ?>
+
 

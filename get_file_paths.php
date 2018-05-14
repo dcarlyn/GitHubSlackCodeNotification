@@ -17,8 +17,6 @@
 		{
 			$commit_data = GetGithubData('https://api.github.com/repos/' . $user . '/' . $repo . '/commits/' . $commit->id);
 
-			print_r($commit_data);
-
 			$files = $commit_data->files;
 
 			foreach($files as $file)

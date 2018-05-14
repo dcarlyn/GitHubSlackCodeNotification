@@ -4,8 +4,6 @@
 	//Author: David Carlyn
 	//Description: Given Text, will send to Slack
 
-	include_once 'slack_encode.php';
-
 	function NotifySlack($text)
 	{
 		$fix_double_quotes = str_replace('"', '\"', $text);

@@ -7,9 +7,9 @@
 	lockout from the API.
 */
 
-	function AuthenticateGithub($username, $password)
+	function AuthenticateGithub($client_id, $client_secret)
 	{
-		$text = "sudo curl -i https://api.github.com -u " . $username . ":" . $password;
+		$text = "sudo curl 'https://api.github.com/users/dcarlyn?client_id=".$client_id."&client_secret=".$client_secret."'";
 		shell_exec($text);
 
 	}

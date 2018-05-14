@@ -29,7 +29,7 @@
 	$user = $repository->owner->login;
 
 	//Verify Github
-	AuthenticateGitHub("dcarlyn", "******");
+	AuthenticateGitHub("client id HERE", "client_secret HERE");
 
 	//Get file paths
 	$file_paths = GetFilePaths($commits, $user, $repo);
@@ -39,6 +39,8 @@
 
 	//Remove untagged files
 	FilterTaggedFiles($file_pairs);
+
+	print_r($file_pairs);
 
 	//Set differences between files
 	SetFilePairsDiff($file_pairs);
